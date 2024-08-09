@@ -2,8 +2,10 @@
 
 package com.fsck.k9.search
 
-import com.fsck.k9.Account
-import com.fsck.k9.preferences.AccountManager
+import app.k9mail.legacy.account.Account
+import app.k9mail.legacy.account.AccountManager
+import app.k9mail.legacy.search.LocalSearch
+import app.k9mail.legacy.search.SearchAccount
 
 val LocalSearch.isUnifiedInbox: Boolean
     get() = id == SearchAccount.UNIFIED_INBOX

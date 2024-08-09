@@ -9,17 +9,17 @@ import android.view.MenuItem
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.RecyclerView
 import app.k9mail.core.ui.legacy.designsystem.atom.icon.Icons
-import com.fsck.k9.Account
-import com.fsck.k9.Account.FolderMode
+import app.k9mail.legacy.account.Account
+import app.k9mail.legacy.account.Account.FolderMode
+import app.k9mail.legacy.folder.DisplayFolder
+import app.k9mail.legacy.folder.FolderType
+import app.k9mail.legacy.message.controller.MessageReference
+import app.k9mail.legacy.ui.folder.FolderIconProvider
+import app.k9mail.legacy.ui.folder.FolderNameFormatter
 import com.fsck.k9.Preferences
-import com.fsck.k9.controller.MessageReference
 import com.fsck.k9.controller.MessagingController
-import com.fsck.k9.mailstore.DisplayFolder
-import com.fsck.k9.mailstore.FolderType
 import com.fsck.k9.ui.R
 import com.fsck.k9.ui.base.K9Activity
-import com.fsck.k9.ui.folders.FolderIconProvider
-import com.fsck.k9.ui.folders.FolderNameFormatter
 import com.mikepenz.fastadapter.FastAdapter
 import com.mikepenz.fastadapter.adapters.ItemAdapter
 import java.util.Locale
@@ -41,7 +41,6 @@ class ChooseFolderActivity : K9Activity() {
     private var currentFolderId: Long? = null
     private var scrollToFolderId: Long? = null
     private var messageReference: String? = null
-    private var showDisplayableOnly = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,7 +78,6 @@ class ChooseFolderActivity : K9Activity() {
 
         messageReference = intent.getStringExtra(EXTRA_MESSAGE_REFERENCE)
         currentFolderId = intent.getLongExtraOrNull(EXTRA_CURRENT_FOLDER_ID)
-        showDisplayableOnly = intent.getBooleanExtra(EXTRA_SHOW_DISPLAYABLE_ONLY, false)
 
         scrollToFolderId = if (savedInstanceState != null) {
             savedInstanceState.getLongOrNull(STATE_SCROLL_TO_FOLDER_ID)
@@ -91,7 +89,7 @@ class ChooseFolderActivity : K9Activity() {
     }
 
     private fun getInitialDisplayMode(): FolderMode {
-        return if (showDisplayableOnly) account.folderDisplayMode else account.folderTargetMode
+        return account.folderDisplayMode
     }
 
     private fun initializeActionBar() {
@@ -246,7 +244,6 @@ class ChooseFolderActivity : K9Activity() {
         private const val EXTRA_CURRENT_FOLDER_ID = "currentFolderId"
         private const val EXTRA_SCROLL_TO_FOLDER_ID = "scrollToFolderId"
         private const val EXTRA_MESSAGE_REFERENCE = "messageReference"
-        private const val EXTRA_SHOW_DISPLAYABLE_ONLY = "showDisplayableOnly"
         const val RESULT_SELECTED_FOLDER_ID = "selectedFolderId"
         const val RESULT_FOLDER_DISPLAY_NAME = "folderDisplayName"
         const val RESULT_MESSAGE_REFERENCE = "messageReference"
@@ -258,7 +255,6 @@ class ChooseFolderActivity : K9Activity() {
             accountUuid: String,
             currentFolderId: Long? = null,
             scrollToFolderId: Long? = null,
-            showDisplayableOnly: Boolean = false,
             messageReference: MessageReference? = null,
         ): Intent {
             return Intent(context, ChooseFolderActivity::class.java).apply {
@@ -266,7 +262,6 @@ class ChooseFolderActivity : K9Activity() {
                 putExtra(EXTRA_ACCOUNT, accountUuid)
                 currentFolderId?.let { putExtra(EXTRA_CURRENT_FOLDER_ID, currentFolderId) }
                 scrollToFolderId?.let { putExtra(EXTRA_SCROLL_TO_FOLDER_ID, scrollToFolderId) }
-                putExtra(EXTRA_SHOW_DISPLAYABLE_ONLY, showDisplayableOnly)
                 messageReference?.let { putExtra(EXTRA_MESSAGE_REFERENCE, it.toIdentityString()) }
             }
         }

@@ -17,10 +17,10 @@ import android.provider.OpenableColumns;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.fsck.k9.Account;
-import com.fsck.k9.DI;
+import app.k9mail.legacy.account.Account;
+import app.k9mail.legacy.di.DI;
 import com.fsck.k9.Preferences;
-import com.fsck.k9.controller.MessageReference;
+import app.k9mail.legacy.message.controller.MessageReference;
 import com.fsck.k9.mail.FetchProfile;
 import com.fsck.k9.mail.MessagingException;
 import com.fsck.k9.mail.filter.CountingOutputStream;

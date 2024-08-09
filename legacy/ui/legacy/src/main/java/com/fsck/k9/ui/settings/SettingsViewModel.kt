@@ -3,8 +3,8 @@ package com.fsck.k9.ui.settings
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.fsck.k9.Account
-import com.fsck.k9.preferences.AccountManager
+import app.k9mail.legacy.account.Account
+import app.k9mail.legacy.account.AccountManager
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.NonCancellable

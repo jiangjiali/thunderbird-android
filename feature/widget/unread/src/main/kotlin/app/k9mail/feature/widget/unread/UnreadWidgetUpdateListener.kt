@@ -1,7 +1,7 @@
 package app.k9mail.feature.widget.unread
 
-import com.fsck.k9.Account
-import com.fsck.k9.controller.SimpleMessagingListener
+import app.k9mail.legacy.account.Account
+import app.k9mail.legacy.message.controller.SimpleMessagingListener
 import com.fsck.k9.mail.Message
 import timber.log.Timber
 

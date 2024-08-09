@@ -1,8 +1,11 @@
 package com.fsck.k9.mailstore
 
 import app.k9mail.core.common.mail.Protocols
-import com.fsck.k9.Account
-import com.fsck.k9.Account.SpecialFolderSelection
+import app.k9mail.legacy.account.Account
+import app.k9mail.legacy.account.Account.SpecialFolderSelection
+import app.k9mail.legacy.folder.FolderType
+import app.k9mail.legacy.folder.RemoteFolder
+import app.k9mail.legacy.mailstore.FolderRepository
 import com.fsck.k9.Preferences
 import com.fsck.k9.mail.FolderClass
 

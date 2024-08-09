@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.fsck.k9.Account
-import com.fsck.k9.Account.FolderMode
-import com.fsck.k9.mailstore.DisplayFolder
-import com.fsck.k9.mailstore.FolderRepository
+import app.k9mail.legacy.account.Account
+import app.k9mail.legacy.account.Account.FolderMode
+import app.k9mail.legacy.folder.DisplayFolder
+import app.k9mail.legacy.mailstore.FolderRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.flatMapLatest

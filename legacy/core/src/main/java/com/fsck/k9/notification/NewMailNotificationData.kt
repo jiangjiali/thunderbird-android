@@ -1,7 +1,7 @@
 package com.fsck.k9.notification
 
-import com.fsck.k9.Account
-import com.fsck.k9.controller.MessageReference
+import app.k9mail.legacy.account.Account
+import app.k9mail.legacy.message.controller.MessageReference
 
 internal data class NewMailNotificationData(
     val cancelNotificationIds: List<Int>,

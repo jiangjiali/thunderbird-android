@@ -10,20 +10,19 @@ import java.util.TreeMap;
 
 import android.content.Context;
 
-import com.fsck.k9.Account;
-import com.fsck.k9.Account.DeletePolicy;
-import com.fsck.k9.Account.Expunge;
-import com.fsck.k9.Account.FolderMode;
-import com.fsck.k9.Account.MessageFormat;
-import com.fsck.k9.Account.QuoteStyle;
-import com.fsck.k9.Account.Searchable;
-import com.fsck.k9.Account.ShowPictures;
-import com.fsck.k9.Account.SortType;
-import com.fsck.k9.Account.SpecialFolderSelection;
+import app.k9mail.legacy.notification.NotificationLight;
+import app.k9mail.legacy.account.Account;
+import app.k9mail.legacy.account.Account.DeletePolicy;
+import app.k9mail.legacy.account.Account.Expunge;
+import app.k9mail.legacy.account.Account.FolderMode;
+import app.k9mail.legacy.account.Account.MessageFormat;
+import app.k9mail.legacy.account.Account.QuoteStyle;
+import app.k9mail.legacy.account.Account.ShowPictures;
+import app.k9mail.legacy.account.Account.SortType;
+import app.k9mail.legacy.account.Account.SpecialFolderSelection;
 import com.fsck.k9.AccountPreferenceSerializer;
-import com.fsck.k9.DI;
+import app.k9mail.legacy.di.DI;
 import com.fsck.k9.K9;
-import com.fsck.k9.NotificationLight;
 import com.fsck.k9.core.R;
 import com.fsck.k9.mailstore.StorageManager;
 import com.fsck.k9.preferences.Settings.BooleanSetting;
@@ -107,9 +106,6 @@ public class AccountSettingsDescriptions {
         s.put("folderSyncMode", Settings.versions(
                 new V(1, new EnumSetting<>(FolderMode.class, FolderMode.FIRST_CLASS))
         ));
-        s.put("folderTargetMode", Settings.versions(
-                new V(1, new EnumSetting<>(FolderMode.class, FolderMode.NOT_SECOND_CLASS))
-        ));
         s.put("idleRefreshMinutes", Settings.versions(
                 new V(1, new IntegerArraySetting(24, new int[] { 1, 2, 3, 6, 12, 24, 36, 48, 60 })),
                 new V(74, new IntegerResourceSetting(24, R.array.idle_refresh_period_values))
@@ -176,9 +172,6 @@ public class AccountSettingsDescriptions {
         ));
         s.put("ringtone", Settings.versions(
                 new V(1, new RingtoneSetting("content://settings/system/notification_sound"))
-        ));
-        s.put("searchableFolders", Settings.versions(
-                new V(1, new EnumSetting<>(Searchable.class, Searchable.ALL))
         ));
         s.put("sentFolderName", Settings.versions(
                 new V(1, new StringSetting(FOLDER_NONE)),

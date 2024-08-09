@@ -16,13 +16,13 @@ import androidx.loader.app.LoaderManager;
 import androidx.loader.app.LoaderManager.LoaderCallbacks;
 import androidx.loader.content.Loader;
 
-import com.fsck.k9.Account;
+import app.k9mail.legacy.account.Account;
 import com.fsck.k9.Preferences;
 import com.fsck.k9.autocrypt.AutocryptOperations;
-import com.fsck.k9.controller.MessageReference;
+import app.k9mail.legacy.message.controller.MessageReference;
 import com.fsck.k9.controller.MessagingController;
-import com.fsck.k9.controller.MessagingListener;
-import com.fsck.k9.controller.SimpleMessagingListener;
+import app.k9mail.legacy.message.controller.MessagingListener;
+import app.k9mail.legacy.message.controller.SimpleMessagingListener;
 import com.fsck.k9.helper.RetainFragment;
 import com.fsck.k9.mail.Flag;
 import com.fsck.k9.mail.MessagingException;

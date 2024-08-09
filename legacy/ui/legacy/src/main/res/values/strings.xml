@@ -77,7 +77,6 @@
     <string name="search_everywhere_action">Search everywhere</string>
     <string name="search_results">Search results</string>
     <string name="new_messages_title">New messages</string>
-    <string name="preferences_action">Settings</string>
     <string name="folders_action">Manage folders</string>
     <string name="account_settings_action">Account settings</string>
     <string name="remove_account_action">Remove account</string>
@@ -166,11 +165,6 @@
     <string name="notification_channel_miscellaneous_title">Miscellaneous</string>
     <string name="notification_channel_miscellaneous_description">Miscellaneous notifications like errors etc.</string>
 
-    <string name="special_mailbox_name_inbox">Inbox</string>
-    <string name="special_mailbox_name_outbox">Outbox</string>
-    <string name="special_mailbox_name_drafts">Drafts</string>
-    <string name="special_mailbox_name_trash">Trash</string>
-    <string name="special_mailbox_name_sent">Sent</string>
 
     <string name="send_failure_subject">Failed to send some messages</string>
 
@@ -520,12 +514,6 @@
     <string name="account_settings_folder_push_mode_not_second_class">All except 2nd Class folders</string>
     <string name="account_settings_folder_push_mode_none">None</string>
 
-    <string name="account_settings_folder_target_mode_label">Move/copy destination folders</string>
-    <string name="account_settings_folder_target_mode_all">All</string>
-    <string name="account_settings_folder_target_mode_first_class">Only 1st Class folders</string>
-    <string name="account_settings_folder_target_mode_first_and_second_class">1st and 2nd Class folders</string>
-    <string name="account_settings_folder_target_mode_not_second_class">All except 2nd Class folders</string>
-
     <string name="account_settings_sync_remote_deletetions_label">Sync server deletions</string>
     <string name="account_settings_sync_remote_deletetions_summary">Remove messages when deleted on server</string>
 
@@ -726,11 +714,6 @@
 
     <string name="folder_settings_include_in_integrated_inbox_label">Unify</string>
     <string name="folder_settings_include_in_integrated_inbox_summary">All messages are shown in Unified Inbox</string>
-
-    <string name="account_settings_searchable_label">Folders to search</string>
-    <string name="account_settings_searchable_all">All</string>
-    <string name="account_settings_searchable_displayable">Displayable</string>
-    <string name="account_settings_searchable_none">None</string>
 
     <string name="account_settings_no_folder_selected">None</string>
     <string name="account_settings_automatic_special_folder">Automatic (%s)</string>

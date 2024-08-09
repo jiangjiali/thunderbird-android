@@ -15,8 +15,8 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.viewModelScope
 import app.k9mail.feature.account.oauth.domain.AccountOAuthDomainContract.UseCase.GetOAuthRequestIntent
 import app.k9mail.feature.account.oauth.domain.entity.AuthorizationIntentResult
-import com.fsck.k9.Account
-import com.fsck.k9.preferences.AccountManager
+import app.k9mail.legacy.account.Account
+import app.k9mail.legacy.account.AccountManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

@@ -1,10 +1,10 @@
 package com.fsck.k9.ui.settings.account
 
 import androidx.preference.PreferenceDataStore
-import com.fsck.k9.Account
-import com.fsck.k9.Account.SpecialFolderSelection
-import com.fsck.k9.NotificationLight
-import com.fsck.k9.NotificationVibration
+import app.k9mail.legacy.account.Account
+import app.k9mail.legacy.account.Account.SpecialFolderSelection
+import app.k9mail.legacy.notification.NotificationLight
+import app.k9mail.legacy.notification.NotificationVibration
 import com.fsck.k9.Preferences
 import com.fsck.k9.controller.MessagingController
 import com.fsck.k9.job.K9JobManager
@@ -128,8 +128,6 @@ class AccountSettingsDataStore(
                 loadSpecialFolder(account.autoExpandFolderId, SpecialFolderSelection.MANUAL)
             }
             "folder_display_mode" -> account.folderDisplayMode.name
-            "folder_target_mode" -> account.folderTargetMode.name
-            "searchable_folders" -> account.searchableFolders.name
             "archive_folder" -> loadSpecialFolder(account.archiveFolderId, account.archiveFolderSelection)
             "drafts_folder" -> loadSpecialFolder(account.draftsFolderId, account.draftsFolderSelection)
             "sent_folder" -> loadSpecialFolder(account.sentFolderId, account.sentFolderSelection)
@@ -173,8 +171,6 @@ class AccountSettingsDataStore(
             "account_quote_prefix" -> account.quotePrefix = value
             "account_setup_auto_expand_folder" -> account.autoExpandFolderId = extractFolderId(value)
             "folder_display_mode" -> account.folderDisplayMode = Account.FolderMode.valueOf(value)
-            "folder_target_mode" -> account.folderTargetMode = Account.FolderMode.valueOf(value)
-            "searchable_folders" -> account.searchableFolders = Account.Searchable.valueOf(value)
             "archive_folder" -> saveSpecialFolderSelection(value, account::setArchiveFolderId)
             "drafts_folder" -> saveSpecialFolderSelection(value, account::setDraftsFolderId)
             "sent_folder" -> saveSpecialFolderSelection(value, account::setSentFolderId)

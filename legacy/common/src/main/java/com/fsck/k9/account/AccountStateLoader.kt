@@ -4,15 +4,15 @@ import app.k9mail.core.common.mail.Protocols
 import app.k9mail.feature.account.common.AccountCommonExternalContract
 import app.k9mail.feature.account.common.domain.entity.AccountState
 import app.k9mail.feature.account.common.domain.entity.AuthorizationState
-import com.fsck.k9.Account
+import app.k9mail.legacy.account.Account
+import app.k9mail.legacy.account.AccountManager
 import com.fsck.k9.backends.toImapServerSettings
 import com.fsck.k9.logging.Timber
 import com.fsck.k9.mail.ServerSettings
-import com.fsck.k9.preferences.AccountManager
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import com.fsck.k9.Account as K9Account
+import app.k9mail.legacy.account.Account as K9Account
 
 class AccountStateLoader(
     private val accountManager: AccountManager,

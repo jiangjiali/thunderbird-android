@@ -12,9 +12,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import androidx.annotation.VisibleForTesting;
 
-import com.fsck.k9.Account;
+import app.k9mail.legacy.account.Account;
 import com.fsck.k9.K9;
-import com.fsck.k9.controller.MessageReference;
+import app.k9mail.legacy.message.controller.MessageReference;
 import com.fsck.k9.mail.Address;
 import com.fsck.k9.mail.Flag;
 import com.fsck.k9.mail.MessagingException;
@@ -23,7 +23,7 @@ import com.fsck.k9.mail.internet.AddressHeaderBuilder;
 import com.fsck.k9.mail.internet.MimeMessage;
 import com.fsck.k9.mail.message.MessageHeaderParser;
 import com.fsck.k9.mailstore.LockableDatabase.DbCallback;
-import com.fsck.k9.message.extractors.PreviewResult.PreviewType;
+import app.k9mail.legacy.message.extractors.PreviewResult.PreviewType;
 import timber.log.Timber;
 
 
@@ -134,7 +134,7 @@ public class LocalMessage extends MimeMessage {
         } else {
             Timber.d("No headers available for this message!");
         }
-        
+
         headerNeedsUpdating = false;
     }
 
@@ -389,7 +389,7 @@ public class LocalMessage extends MimeMessage {
         if (headerNeedsUpdating) {
             updateHeader();
         }
-        
+
         super.writeTo(out);
     }
 
@@ -408,7 +408,7 @@ public class LocalMessage extends MimeMessage {
         if (mMessageId != null) {
             super.setMessageId(mMessageId);
         }
-        
+
         headerNeedsUpdating = false;
     }
 

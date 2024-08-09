@@ -1,13 +1,13 @@
 package com.fsck.k9.controller.push
 
-import com.fsck.k9.Account
-import com.fsck.k9.Account.FolderMode
+import app.k9mail.legacy.account.Account
+import app.k9mail.legacy.account.Account.FolderMode
+import app.k9mail.legacy.mailstore.FolderRepository
 import com.fsck.k9.Preferences
 import com.fsck.k9.backend.BackendManager
 import com.fsck.k9.backend.api.BackendPusher
 import com.fsck.k9.backend.api.BackendPusherCallback
 import com.fsck.k9.controller.MessagingController
-import com.fsck.k9.mailstore.FolderRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

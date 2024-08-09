@@ -8,9 +8,10 @@ import android.database.sqlite.SQLiteDatabase;
 import androidx.annotation.NonNull;
 
 import androidx.annotation.Nullable;
-import com.fsck.k9.Account;
+import app.k9mail.legacy.account.Account;
+import app.k9mail.legacy.mailstore.MoreMessages;
 import com.fsck.k9.K9;
-import com.fsck.k9.controller.MessageReference;
+import app.k9mail.legacy.message.controller.MessageReference;
 import com.fsck.k9.helper.FileHelper;
 import com.fsck.k9.helper.Utility;
 import com.fsck.k9.mail.Body;

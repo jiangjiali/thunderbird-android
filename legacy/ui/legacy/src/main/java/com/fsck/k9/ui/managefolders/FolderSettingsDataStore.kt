@@ -1,10 +1,10 @@
 package com.fsck.k9.ui.managefolders
 
 import androidx.preference.PreferenceDataStore
-import com.fsck.k9.Account
+import app.k9mail.legacy.account.Account
+import app.k9mail.legacy.folder.FolderDetails
+import app.k9mail.legacy.mailstore.FolderRepository
 import com.fsck.k9.mail.FolderClass
-import com.fsck.k9.mailstore.FolderDetails
-import com.fsck.k9.mailstore.FolderRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob

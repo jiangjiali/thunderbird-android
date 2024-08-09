@@ -17,10 +17,10 @@ import android.os.AsyncTask;
 import androidx.annotation.WorkerThread;
 import android.widget.Toast;
 
-import com.fsck.k9.Account;
+import app.k9mail.legacy.account.Account;
 import com.fsck.k9.Preferences;
 import com.fsck.k9.controller.MessagingController;
-import com.fsck.k9.controller.SimpleMessagingListener;
+import app.k9mail.legacy.message.controller.SimpleMessagingListener;
 import com.fsck.k9.helper.MimeTypeUtil;
 import com.fsck.k9.mail.Message;
 import com.fsck.k9.mail.Part;

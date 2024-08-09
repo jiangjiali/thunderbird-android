@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.os.Parcelable;
 
 import app.k9mail.feature.launcher.FeatureLauncherActivity;
-import com.fsck.k9.Account;
+import app.k9mail.legacy.account.Account;
 import com.fsck.k9.Preferences;
 import com.fsck.k9.activity.MessageCompose;
-import com.fsck.k9.controller.MessageReference;
+import app.k9mail.legacy.message.controller.MessageReference;
 
 public class MessageActions {
     /**

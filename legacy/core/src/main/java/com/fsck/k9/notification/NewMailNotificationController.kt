@@ -1,8 +1,8 @@
 package com.fsck.k9.notification
 
 import androidx.core.app.NotificationManagerCompat
-import com.fsck.k9.Account
-import com.fsck.k9.controller.MessageReference
+import app.k9mail.legacy.account.Account
+import app.k9mail.legacy.message.controller.MessageReference
 import com.fsck.k9.mailstore.LocalMessage
 
 /**

@@ -1,19 +1,24 @@
 package com.fsck.k9
 
-import com.fsck.k9.Account.Companion.DEFAULT_SORT_ASCENDING
-import com.fsck.k9.Account.Companion.DEFAULT_SORT_TYPE
-import com.fsck.k9.Account.Companion.DEFAULT_SYNC_INTERVAL
-import com.fsck.k9.Account.Companion.NO_OPENPGP_KEY
-import com.fsck.k9.Account.Companion.UNASSIGNED_ACCOUNT_NUMBER
-import com.fsck.k9.Account.DeletePolicy
-import com.fsck.k9.Account.Expunge
-import com.fsck.k9.Account.FolderMode
-import com.fsck.k9.Account.MessageFormat
-import com.fsck.k9.Account.QuoteStyle
-import com.fsck.k9.Account.Searchable
-import com.fsck.k9.Account.ShowPictures
-import com.fsck.k9.Account.SortType
-import com.fsck.k9.Account.SpecialFolderSelection
+import app.k9mail.legacy.account.Account
+import app.k9mail.legacy.account.Account.Companion.DEFAULT_SORT_ASCENDING
+import app.k9mail.legacy.account.Account.Companion.DEFAULT_SORT_TYPE
+import app.k9mail.legacy.account.Account.Companion.DEFAULT_SYNC_INTERVAL
+import app.k9mail.legacy.account.Account.Companion.NO_OPENPGP_KEY
+import app.k9mail.legacy.account.Account.Companion.UNASSIGNED_ACCOUNT_NUMBER
+import app.k9mail.legacy.account.Account.DeletePolicy
+import app.k9mail.legacy.account.Account.Expunge
+import app.k9mail.legacy.account.Account.FolderMode
+import app.k9mail.legacy.account.Account.MessageFormat
+import app.k9mail.legacy.account.Account.QuoteStyle
+import app.k9mail.legacy.account.Account.ShowPictures
+import app.k9mail.legacy.account.Account.SortType
+import app.k9mail.legacy.account.Account.SpecialFolderSelection
+import app.k9mail.legacy.account.Identity
+import app.k9mail.legacy.notification.NotificationLight
+import app.k9mail.legacy.notification.NotificationSettings
+import app.k9mail.legacy.notification.NotificationVibration
+import app.k9mail.legacy.notification.VibratePattern
 import com.fsck.k9.helper.Utility
 import com.fsck.k9.mailstore.StorageManager
 import com.fsck.k9.preferences.Storage
@@ -178,11 +183,6 @@ class AccountPreferenceSerializer(
 
             folderPushMode = getEnumStringPref<FolderMode>(storage, "$accountUuid.folderPushMode", FolderMode.NONE)
 
-            folderTargetMode =
-                getEnumStringPref<FolderMode>(storage, "$accountUuid.folderTargetMode", FolderMode.NOT_SECOND_CLASS)
-
-            searchableFolders = getEnumStringPref<Searchable>(storage, "$accountUuid.searchableFolders", Searchable.ALL)
-
             isSignatureBeforeQuotedText = storage.getBoolean("$accountUuid.signatureBeforeQuotedText", false)
             replaceIdentities(loadIdentities(accountUuid, storage))
 
@@ -319,12 +319,10 @@ class AccountPreferenceSerializer(
             editor.putString("$accountUuid.folderDisplayMode", folderDisplayMode.name)
             editor.putString("$accountUuid.folderSyncMode", folderSyncMode.name)
             editor.putString("$accountUuid.folderPushMode", folderPushMode.name)
-            editor.putString("$accountUuid.folderTargetMode", folderTargetMode.name)
             editor.putBoolean("$accountUuid.signatureBeforeQuotedText", isSignatureBeforeQuotedText)
             editor.putString("$accountUuid.expungePolicy", expungePolicy.name)
             editor.putBoolean("$accountUuid.syncRemoteDeletions", isSyncRemoteDeletions)
             editor.putInt("$accountUuid.maxPushFolders", maxPushFolders)
-            editor.putString("$accountUuid.searchableFolders", searchableFolders.name)
             editor.putInt("$accountUuid.chipColor", chipColor)
             editor.putBoolean("$accountUuid.subscribedFoldersOnly", isSubscribedFoldersOnly)
             editor.putInt("$accountUuid.maximumPolledMessageAge", maximumPolledMessageAge)
@@ -432,12 +430,10 @@ class AccountPreferenceSerializer(
         editor.remove("$accountUuid.folderDisplayMode")
         editor.remove("$accountUuid.folderSyncMode")
         editor.remove("$accountUuid.folderPushMode")
-        editor.remove("$accountUuid.folderTargetMode")
         editor.remove("$accountUuid.signatureBeforeQuotedText")
         editor.remove("$accountUuid.expungePolicy")
         editor.remove("$accountUuid.syncRemoteDeletions")
         editor.remove("$accountUuid.maxPushFolders")
-        editor.remove("$accountUuid.searchableFolders")
         editor.remove("$accountUuid.chipColor")
         editor.remove("$accountUuid.notificationLight")
         editor.remove("$accountUuid.subscribedFoldersOnly")
@@ -589,7 +585,6 @@ class AccountPreferenceSerializer(
             folderDisplayMode = FolderMode.NOT_SECOND_CLASS
             folderSyncMode = FolderMode.FIRST_CLASS
             folderPushMode = FolderMode.NONE
-            folderTargetMode = FolderMode.NOT_SECOND_CLASS
             sortType = DEFAULT_SORT_TYPE
             setSortAscending(DEFAULT_SORT_TYPE, DEFAULT_SORT_ASCENDING)
             showPictures = ShowPictures.NEVER
@@ -626,8 +621,6 @@ class AccountPreferenceSerializer(
             setSpamFolderId(null, SpecialFolderSelection.AUTOMATIC)
             setTrashFolderId(null, SpecialFolderSelection.AUTOMATIC)
             setArchiveFolderId(null, SpecialFolderSelection.AUTOMATIC)
-
-            searchableFolders = Searchable.ALL
 
             identities = ArrayList<Identity>()
 
